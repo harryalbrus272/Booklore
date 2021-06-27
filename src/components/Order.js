@@ -1,7 +1,8 @@
 import React from 'react';
 
-const Order = () => {
-  return <div></div>;
+const Order = (props) => {
+  console.log(props);
+  return <div>Order</div>;
 };
 
 export default Order;
