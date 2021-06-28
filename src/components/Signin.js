@@ -22,6 +22,7 @@ const Signin = () => {
             setPostData({ ...postData, password: e.target.value })
           }
         />
+        <button type="submit">Sign In</button>
       </form>
     </div>
   );

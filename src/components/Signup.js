@@ -26,6 +26,7 @@ const Signup = () => {
           placeholder="Confirm Password"
           onChange={(e) => setPostData({ ...postData, confirmPassword: e.target.value })}
         />
+        <button type="submit">Sign Up</button>
       </form>
     </div>
   );

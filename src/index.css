@@ -63,16 +63,31 @@ a {
   align-items: center;
   justify-content: center;
   border-radius: 0.7rem;
-  border: #125D98 2px solid;
+  border: #125d98 2px solid;
 }
 .signin-form input,
-.signup-form input{
+.signup-form input {
   height: 50px;
   width: 250px;
-  margin: 5px 0 !important;
+  margin: 5px 0;
   padding-left: 15px;
   outline: none;
   border-radius: 0.7rem;
-  margin: auto;
-  border: #3C8DAD 2px solid;
+  border: #3c8dad 2px solid;
+}
+.signin-form button,
+.signup-form button {
+  height: 50px;
+  width: 270px;
+  margin: 5px 0;
+  padding: 0 15px;
+  outline: none;
+  border: 2px solid gray;
+  border-radius: 0.7rem;
+  background: linear-gradient(45deg, #005a8d, #dbe6fd);
+}
+.signin-form button:hover,
+.signup-form button:hover {
+  background: linear-gradient(90deg, #005a8d, #dbe6fd);
+  transition: background 1s ease-in-out;
 }
