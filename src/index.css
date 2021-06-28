@@ -11,3 +11,68 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/*Common*/
+a {
+  color: white;
+  text-decoration: none;
+}
+
+/*Navbar*/
+
+.nav {
+  display: flex;
+  background: linear-gradient(40deg, #4c4c6d, #47597e);
+  padding: 0 20px;
+  align-items: center;
+  justify-content: space-between;
+  color: white !important;
+}
+.nav .search {
+  flex-grow: 0.5;
+  position: relative;
+  display: flex;
+}
+.search input {
+  height: 50px;
+  width: 100%;
+  padding-left: 10px;
+  border-radius: 0.7rem;
+}
+.horizontal-list {
+  list-style: none;
+  display: flex;
+}
+.horizontal-list li {
+  padding: 0 10px;
+}
+
+/*Sign in and Sign up forms*/
+
+.signin-form-container,
+.signup-form-container {
+  margin-top: 50px;
+}
+.signin-form,
+.signup-form {
+  width: 300px;
+  padding: 40px 0;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.7rem;
+  border: #125D98 2px solid;
+}
+.signin-form input,
+.signup-form input{
+  height: 50px;
+  width: 250px;
+  margin: 5px 0 !important;
+  padding-left: 15px;
+  outline: none;
+  border-radius: 0.7rem;
+  margin: auto;
+  border: #3C8DAD 2px solid;
+}
