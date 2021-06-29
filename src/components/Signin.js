@@ -1,14 +1,19 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Redirect } from 'react-router';
 import { connect } from 'react-redux';
-import { signin } from '../actions/auth';
+import { clearAuthState, signin } from '../actions/auth';
 
 const Signin = (props) => {
-  console.log(props);
   const { error, inProgress, isSignedIn } = props.auth;
   const { from } = props.location.state || { from: { pathname: '/' } };
   const [postData, setPostData] = useState({ email: '', password: '' });
+  //clearing the error
+  useEffect(() => {
+    return () => {
+      props.dispatch(clearAuthState());
+    };
+  }, []);
   const handleOnSubmit = (e) => {
     e.preventDefault();
     if (postData.email && postData.password) props.dispatch(signin(postData));
@@ -17,6 +22,7 @@ const Signin = (props) => {
   if (isSignedIn) {
     return <Redirect to={from} />;
   }
+
   return (
     <div className="signin-form-container">
       <form onSubmit={(e) => handleOnSubmit(e)} className="signin-form">

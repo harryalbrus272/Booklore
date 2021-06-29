@@ -3,6 +3,6 @@ const APIUrls = {
   signin: () => `${API_ROOT}/users/signin`,
   signup: () => `${API_ROOT}/users/signup`,
   fetchBooks: () => `${API_ROOT}/books`,
-  searchBook: (bookName) => `${API_ROOT}/api/books/search?text=${bookName}>`,
+  searchBook: () => `${API_ROOT}/books/search`,
 };
 export default APIUrls;

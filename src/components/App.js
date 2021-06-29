@@ -1,3 +1,4 @@
+import jwtDecode from 'jwt-decode';
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import {
@@ -6,23 +7,67 @@ import {
   Route,
   Redirect,
 } from 'react-router-dom';
+import { authenticateUser } from '../actions/auth';
+import { getAuthTokenFromLocalStorage } from '../helpers/utils';
 import { Navbar, Home, Order, Signin, Signup, Page404, Cart } from './';
 function App(props) {
+  const { auth } = props;
+  useEffect(() => {
+    const token = getAuthTokenFromLocalStorage();
+    console.log(token);
+    if (token) {
+      const user = jwtDecode(token);
+      console.log('user', user);
+      props.dispatch(
+        authenticateUser({
+          email: user.email,
+          _id: user.id,
+          name: user.name,
+        })
+      );
+    }
+  }, []);
+
+  const PrivateRoute = (privateRouteProps) => {
+    const { isSignedIn, path, component: Component } = privateRouteProps;
+    return (
+      <Route
+        path={path}
+        render={(props) => {
+          return isSignedIn ? (
+            <Component {...props} />
+          ) : (
+            <Redirect
+              to={{
+                pathname: '/signin',
+                state: {
+                  from: props.location,
+                },
+              }}
+            />
+          );
+        }}
+      />
+    );
+  };
+
   return (
     <Router>
       <div className="App">
         <Navbar />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/signin" component={Signin} />
+          <Route exact path="/signup" component={Signup} />
+          <Route exact path="/cart" component={Cart} />
+          <PrivateRoute
+            path="/order/:id"
+            component={Order}
+            isSignedIn={props.auth.isSignedIn}
+          />
+          <Route component={Page404} />
+        </Switch>
       </div>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/signin" component={Signin} />
-        <Route exact path="/signup" component={Signup} />
-        <Route exact path="/cart" component={Cart} />
-        <Route exact path="/order/:id">
-          {(props) => <Order {...props} />}
-        </Route>
-        <Route component={Page404} />
-      </Switch>
     </Router>
   );
 }
