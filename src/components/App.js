@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { connect } from 'react-redux';
 import {
   BrowserRouter as Router,
   Switch,
@@ -6,7 +7,7 @@ import {
   Redirect,
 } from 'react-router-dom';
 import { Navbar, Home, Order, Signin, Signup, Page404, Cart } from './';
-function App() {
+function App(props) {
   return (
     <Router>
       <div className="App">
@@ -26,4 +27,10 @@ function App() {
   );
 }
 
-export default App;
+let mapStateToProps = (state) => {
+  return {
+    auth: state.auth,
+  };
+};
+
+export default connect(mapStateToProps)(App);

@@ -1,11 +1,26 @@
 import React from 'react';
 import { useState } from 'react';
+import { Redirect } from 'react-router';
+import { connect } from 'react-redux';
+import { signin } from '../actions/auth';
 
-const Signin = () => {
+const Signin = (props) => {
+  console.log(props);
+  const { error, inProgress, isSignedIn } = props.auth;
+  const { from } = props.location.state || { from: { pathname: '/' } };
   const [postData, setPostData] = useState({ email: '', password: '' });
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+    if (postData.email && postData.password) props.dispatch(signin(postData));
+  };
+  //redirecting user
+  if (isSignedIn) {
+    return <Redirect to={from} />;
+  }
   return (
     <div className="signin-form-container">
-      <form className="signin-form">
+      <form onSubmit={(e) => handleOnSubmit(e)} className="signin-form">
+        {error && <div className="alert error-dailog">{error}</div>}
         <input
           type="email"
           name="email"
@@ -22,10 +37,22 @@ const Signin = () => {
             setPostData({ ...postData, password: e.target.value })
           }
         />
-        <button type="submit">Sign In</button>
+        {inProgress ? (
+          <button type="submit" disabled={inProgress}>
+            Signing in...
+          </button>
+        ) : (
+          <button type="submit" disabled={inProgress}>
+            Sign In
+          </button>
+        )}
       </form>
     </div>
   );
 };
-
-export default Signin;
+const mapStateToProps = (state) => {
+  return {
+    auth: state.auth,
+  };
+};
+export default connect(mapStateToProps)(Signin);

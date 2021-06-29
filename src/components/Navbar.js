@@ -5,7 +5,7 @@ const Navbar = () => {
   const handleSearch = () => {};
   return (
     <div className="nav">
-      <div className="logo">
+      <div className="log o">
         <Link to="/">
           <h1>Booklore</h1>
         </Link>
