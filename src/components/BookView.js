@@ -54,7 +54,7 @@ const BookView = (props) => {
         <h1 style={{ fontSize: '26' }}>Loading....</h1>
       )}
 
-      <Order />
+      <Order bookID={bookID} {...props} />
     </div>
   );
 };
@@ -62,6 +62,7 @@ const mapStateToProps = (state) => {
   return {
     auth: state.auth,
     books: state.books,
+    orders: state.orders,
   };
 };
 export default connect(mapStateToProps)(BookView);

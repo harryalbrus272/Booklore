@@ -103,8 +103,7 @@ export function signin({ email, password }) {
       });
   };
 }
-export function signup({ email, password, confirmPassword, name }) {
-  console.log(email, password, confirmPassword, name);
+export function signup( email, password, confirmPassword, name ) {
   const config = {
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
