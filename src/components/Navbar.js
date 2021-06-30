@@ -29,7 +29,7 @@ const Navbar = (props) => {
           <div className="search-results">
             <ul>
               {books.results.map((book) => (
-                <Link to={`/order/${book._id}`}>
+                <Link to={`/book/${book._id}`}>
                   <li key={book._id} className="search-results-row">
                     <img
                       src="https://image.flaticon.com/icons/svg/2154/2154651.svg"

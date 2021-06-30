@@ -1,33 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const Order = (props) => {
-  console.log(props);
+const Order = () => {
+  const [postData, setPostData] = useState({ phoneNumber: '', address: '', pinCode: '', state: '' });
   return (
-    <div className="book-info-container">
-      <div className="image-container">
-        <img
-          height="150"
-          src="https://images-na.ssl-images-amazon.com/images/I/51wOOMQ+F3L._SX312_BO1,204,203,200_.jpg"
-          alt="book"
+    <div>
+      <form className="contact-form">
+        <input
+          type="text"
+          name="phoneNumber"
+          id="phoneNumber"
+          placeholder="Phone Number"
+          onChange={(e) => setPostData({ ...postData, phoneNumber: e.target.value })}
         />
-      </div>
-      <div className="info-container">
-        <h4 style={{ fontSize: '20px', margin: '0' }}>Rich Dad, Poor Dad</h4>
-        <h6 style={{ fontSize: '15px', margin: '0' }}>Robert Kiyosaki</h6>
-        <p className="price">Rs. 101</p>
-        <button>Order Now</button>
-      </div>
-      <div className="description-container">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure ratione
-          dolore commodi distinctio delectus quisquam reprehenderit maiores
-          recusandae corrupti, voluptatem repellendus illo nihil magnam fuga
-          autem a ipsum eligendi corporis. Lorem ipsum, dolor sit amet
-          consectetur adipisicing elit. In quis, est quas quidem ipsum rerum
-          facere reprehenderit dignissimos provident, nam eveniet dicta eius?
-          Impedit voluptatem nihil ipsam, nobis sunt dolores.
-        </p>
-      </div>
+        <input
+          type="text"
+          name="address"
+          id="address"
+          placeholder="Address"
+          onChange={(e) => setPostData({ ...postData, email: e.target.value })}
+        />
+        <input
+          type="number"
+          name="pinCode"
+          id="pinCode"
+          placeholder="Pin Code"
+          onChange={(e) =>
+            setPostData({ ...postData, pinCode: e.target.value })
+          }
+        />
+        <input
+          type="text"
+          name="state"
+          id="state"
+          placeholder="State"
+          onChange={(e) =>
+            setPostData({ ...postData, state: e.target.value })
+          }
+        />
+        <button type="submit">Order Now!</button>
+      </form>
     </div>
   );
 };

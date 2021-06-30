@@ -9,7 +9,7 @@ import {
 } from 'react-router-dom';
 import { authenticateUser } from '../actions/auth';
 import { getAuthTokenFromLocalStorage } from '../helpers/utils';
-import { Navbar, Home, Order, Signin, Signup, Page404, Cart } from './';
+import { Navbar, Home, Signin, Signup, Page404, Cart, Bookview } from './';
 function App(props) {
   const { auth } = props;
   useEffect(() => {
@@ -60,9 +60,10 @@ function App(props) {
           <Route exact path="/signin" component={Signin} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/cart" component={Cart} />
+          <Route exact path="/book/:id" component={Bookview} />
           <PrivateRoute
-            path="/order/:id"
-            component={Order}
+            path="/cart"
+            component={Cart}
             isSignedIn={props.auth.isSignedIn}
           />
           <Route component={Page404} />
