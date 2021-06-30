@@ -23,8 +23,8 @@ const Navbar = (props) => {
           <h1>Booklore</h1>
         </Link>
       </div>
-      <div className="search">
-        <input placeholder="Search" onChange={(e) => handleSearch(e)} />
+      {!books.disableSearch && <div className="search">
+        <input placeholder="Search"  onChange={(e) => handleSearch(e)} />
         {books.results.length > 0 && (
           <div className="search-results">
             <ul>
@@ -42,7 +42,7 @@ const Navbar = (props) => {
             </ul>
           </div>
         )}
-      </div>
+      </div>}
       <div className="menu">
         {!auth.isSignedIn ? (
           <ul className="horizontal-list">

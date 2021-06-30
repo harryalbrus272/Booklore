@@ -15,5 +15,12 @@ export const SIGNUP_FAILED = 'SIGNUP_FAILED';
 
 //Book Search
 export const BOOK_SEARCH_START = 'BOOK_SEARCH_START';
+export const HIDE_BOOK_SEARCH = 'HIDE_BOOK_SEARCH';
+export const SHOW_BOOK_SEARCH = 'SHOW_BOOK_SEARCH';
 export const BOOK_SEARCH_SUCCESS = 'BOOK_SEARCH_SUCCESS';
 export const BOOK_SEARCH_FAILED = 'BOOK_SEARCH_FAILED';
+
+//Ordering Book
+export const ORDER_START = 'ORDER_START';
+export const ORDER_SUCCESS = 'ORDER_SUCCESS';
+export const ORDER_FAILED = 'ORDER_FAILED';

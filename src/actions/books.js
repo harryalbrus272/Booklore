@@ -1,10 +1,11 @@
 import axios from 'axios';
 import APIUrls from '../helpers/urls';
-import { getFormBody } from '../helpers/utils';
 import {
   BOOK_SEARCH_FAILED,
   BOOK_SEARCH_START,
   BOOK_SEARCH_SUCCESS,
+  HIDE_BOOK_SEARCH,
+  SHOW_BOOK_SEARCH,
 } from './actionTypes';
 
 export function fetchBookListStart() {
@@ -17,6 +18,18 @@ export function fetchBookListFailed(errorMessage) {
   return {
     type: BOOK_SEARCH_FAILED,
     error: errorMessage,
+  };
+}
+
+export function hideBookSearch() {
+  return {
+    type: HIDE_BOOK_SEARCH,
+  };
+}
+
+export function showBookSearch() {
+  return {
+    type: SHOW_BOOK_SEARCH,
   };
 }
 
