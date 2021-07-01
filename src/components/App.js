@@ -7,7 +7,7 @@ import {
   Route,
   Redirect,
 } from 'react-router-dom';
-import { authenticateUser } from '../actions/auth';
+import { authenticateUser, logoutUser } from '../actions/auth';
 import { getAuthTokenFromLocalStorage } from '../helpers/utils';
 import { Navbar, Home, Signin, Signup, Page404, Cart, Bookview } from './';
 function App(props) {
@@ -17,6 +17,7 @@ function App(props) {
     const token = getAuthTokenFromLocalStorage();
     if (token) {
       const user = jwtDecode(token);
+      if(user.exp * 1000 < new Date().getTime()) props.dispatch(logoutUser());
       props.dispatch(
         authenticateUser({
           email: user.email,
