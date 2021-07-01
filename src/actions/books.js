@@ -8,7 +8,6 @@ import {
   SHOW_BOOK_SEARCH,
 } from './actionTypes';
 
-
 //Starting to fetch the books list
 export function fetchBookListStart() {
   return {

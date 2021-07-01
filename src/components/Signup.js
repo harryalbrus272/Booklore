@@ -15,15 +15,27 @@ const Signup = (props) => {
 
   useEffect(() => {
     return () => {
-      props.dispatch(clearAuthState())
-    }
+      props.dispatch(clearAuthState());
+    };
   }, []);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    if(postData.email && postData.confirmPassword && postData.name && postData.password) {
+    if (
+      postData.email &&
+      postData.confirmPassword &&
+      postData.name &&
+      postData.password
+    ) {
       props.dispatch(startSignup());
-      props.dispatch(signup(postData.email, postData.password, postData.confirmPassword, postData.name));
+      props.dispatch(
+        signup(
+          postData.email,
+          postData.password,
+          postData.confirmPassword,
+          postData.name
+        )
+      );
     }
   };
   //redirecting user

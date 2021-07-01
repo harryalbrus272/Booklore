@@ -17,7 +17,7 @@ function App(props) {
     const token = getAuthTokenFromLocalStorage();
     if (token) {
       const user = jwtDecode(token);
-      if(user.exp * 1000 < new Date().getTime()) props.dispatch(logoutUser());
+      if (user.exp * 1000 < new Date().getTime()) props.dispatch(logoutUser());
       props.dispatch(
         authenticateUser({
           email: user.email,

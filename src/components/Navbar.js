@@ -22,26 +22,28 @@ const Navbar = (props) => {
           <h1>Booklore</h1>
         </Link>
       </div>
-      {!books.disableSearch && <div className="search">
-        <input placeholder="Search"  onChange={(e) => handleSearch(e)} />
-        {books.results.length > 0 && (
-          <div className="search-results">
-            <ul>
-              {books.results.map((book) => (
-                <Link to={`/book/${book._id}`}>
-                  <li key={book._id} className="search-results-row">
-                    <img
-                      src="https://image.flaticon.com/icons/svg/2154/2154651.svg"
-                      alt="user-dp"
-                    />
-                    <span>{book.title}</span>
-                  </li>
-                </Link>
-              ))}
-            </ul>
-          </div>
-        )}
-      </div>}
+      {!books.disableSearch && (
+        <div className="search">
+          <input placeholder="Search" onChange={(e) => handleSearch(e)} />
+          {books.results.length > 0 && (
+            <div className="search-results">
+              <ul>
+                {books.results.map((book) => (
+                  <Link to={`/book/${book._id}`}>
+                    <li key={book._id} className="search-results-row">
+                      <img
+                        src="https://image.flaticon.com/icons/svg/2154/2154651.svg"
+                        alt="user-dp"
+                      />
+                      <span>{book.title}</span>
+                    </li>
+                  </Link>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      )}
       <div className="menu">
         {!auth.isSignedIn ? (
           <ul className="horizontal-list">

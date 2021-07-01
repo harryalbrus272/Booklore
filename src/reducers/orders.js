@@ -35,7 +35,7 @@ const orders = (state = initialOrderState, action) => {
       };
     case CLEAR_ORDER_FORM_STATE:
       return {
-        ...initialOrderState
+        ...initialOrderState,
       };
     default:
       return state;

@@ -15,7 +15,6 @@ export function startOrderRequest() {
   };
 }
 
-
 //Triggered when the Order request results in success
 export function successOrderRequest(orderConfirmation) {
   return {

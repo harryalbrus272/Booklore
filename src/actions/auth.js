@@ -73,7 +73,7 @@ export function clearAuthState() {
   };
 }
 
-//Authenticating the user 
+//Authenticating the user
 export function authenticateUser(user) {
   return {
     type: AUTHENTICATE_USER,
@@ -81,8 +81,8 @@ export function authenticateUser(user) {
   };
 }
 
-//Action for sending request to the sever to confirm sign in 
-export function signin({ email, password }) {;
+//Action for sending request to the sever to confirm sign in
+export function signin({ email, password }) {
   const config = {
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
@@ -108,14 +108,14 @@ export function signin({ email, password }) {;
         }
       })
       .catch((err) => {
-        console.log(err.response)
+        console.log(err.response);
         dispatch(signinFailed(err.response.data.message));
       });
   };
 }
 
 //Action for Api calls to authenticate the signing up process
-export function signup( email, password, confirmPassword, name ) {
+export function signup(email, password, confirmPassword, name) {
   const config = {
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
@@ -126,7 +126,11 @@ export function signup( email, password, confirmPassword, name ) {
     const url = APIUrls.signup();
     //Encode the format of the content type
     await axios
-      .post(url, getFormBody({ email, password, confirmPassword, name }), config)
+      .post(
+        url,
+        getFormBody({ email, password, confirmPassword, name }),
+        config
+      )
       .then((res) => {
         const { data } = res;
         const { success, result, token, message } = data;

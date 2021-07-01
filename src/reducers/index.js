@@ -5,5 +5,5 @@ import orders from './orders';
 export default combineReducers({
   auth,
   books,
-  orders
+  orders,
 });
