@@ -1,3 +1,4 @@
+//This contains all the URLs that are used for the api calls
 const API_ROOT = 'http://localhost:3000/api';
 const APIUrls = {
   signin: () => `${API_ROOT}/users/signin`,

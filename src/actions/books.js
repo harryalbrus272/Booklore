@@ -8,12 +8,15 @@ import {
   SHOW_BOOK_SEARCH,
 } from './actionTypes';
 
+
+//Starting to fetch the books list
 export function fetchBookListStart() {
   return {
     type: BOOK_SEARCH_START,
   };
 }
 
+//Triggered if the book search fails
 export function fetchBookListFailed(errorMessage) {
   return {
     type: BOOK_SEARCH_FAILED,
@@ -21,18 +24,21 @@ export function fetchBookListFailed(errorMessage) {
   };
 }
 
+//Hiding the book search when the user redirects to the book details page
 export function hideBookSearch() {
   return {
     type: HIDE_BOOK_SEARCH,
   };
 }
 
+//Showing the book search when the user redirects to the book details page
 export function showBookSearch() {
   return {
     type: SHOW_BOOK_SEARCH,
   };
 }
 
+//Triggered if the book search is succesful
 export function fetchBookListSuccess(books) {
   return {
     type: BOOK_SEARCH_SUCCESS,
@@ -40,6 +46,7 @@ export function fetchBookListSuccess(books) {
   };
 }
 
+//API calls to fetch the books using the text
 export const fetchBooks = (text) => {
   const url = APIUrls.searchBook(text);
 

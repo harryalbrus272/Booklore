@@ -13,12 +13,14 @@ import {
   SIGNUP_SUCCESS,
 } from './actionTypes';
 
+//Starting the Signing in Process
 export function startSignin() {
   return {
     type: LOGIN_START,
   };
 }
 
+//triggered if the signing in fails
 export function signinFailed(errorMessage) {
   return {
     type: LOGIN_FAILED,
@@ -26,6 +28,7 @@ export function signinFailed(errorMessage) {
   };
 }
 
+//If the signing in is successful
 export function signinSuccess(user) {
   return {
     type: LOGIN_SUCCESS,
@@ -33,12 +36,14 @@ export function signinSuccess(user) {
   };
 }
 
+//Starting the Signing up Process
 export function startSignup() {
   return {
     type: SIGNUP_START,
   };
 }
 
+//triggered if the signing up fails
 export function signupFailed(errorMessage) {
   return {
     type: SIGNUP_FAILED,
@@ -46,6 +51,7 @@ export function signupFailed(errorMessage) {
   };
 }
 
+//If the signing up is successful
 export function signupSuccess(user) {
   return {
     type: SIGNUP_SUCCESS,
@@ -53,18 +59,21 @@ export function signupSuccess(user) {
   };
 }
 
+//Action to log out the user
 export function logoutUser() {
   return {
     type: LOG_OUT,
   };
 }
 
+//Clearing auth state to remove the errors and messages already in the state
 export function clearAuthState() {
   return {
     type: CLEAR_AUTH_STATE,
   };
 }
 
+//Authenticating the user 
 export function authenticateUser(user) {
   return {
     type: AUTHENTICATE_USER,
@@ -72,6 +81,7 @@ export function authenticateUser(user) {
   };
 }
 
+//Action for sending request to the sever to confirm sign in 
 export function signin({ email, password }) {
   console.log(email, password);
   const config = {
@@ -89,8 +99,9 @@ export function signin({ email, password }) {
         const { data } = res;
         const { success, result, token, message } = data;
         if (success) {
-          //save the user option
+          //save the user option to the localStorage
           localStorage.setItem('token', token);
+          //Dispatching the relevant actions
           dispatch(signinSuccess(result));
           return;
         } else {
@@ -103,6 +114,8 @@ export function signin({ email, password }) {
       });
   };
 }
+
+//Action for Api calls to authenticate the signing up process
 export function signup( email, password, confirmPassword, name ) {
   const config = {
     headers: {
@@ -119,7 +132,7 @@ export function signup( email, password, confirmPassword, name ) {
         const { data } = res;
         const { success, result, token, message } = data;
         if (success) {
-          //save the user option
+          //save the user option to the localStorage of the user
           localStorage.setItem('token', token);
           dispatch(signupSuccess(result));
           return;

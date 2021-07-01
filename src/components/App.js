@@ -12,6 +12,7 @@ import { getAuthTokenFromLocalStorage } from '../helpers/utils';
 import { Navbar, Home, Signin, Signup, Page404, Cart, Bookview } from './';
 function App(props) {
   const { auth } = props;
+  //Checking if the user is authenticated on opening the application
   useEffect(() => {
     const token = getAuthTokenFromLocalStorage();
     console.log(token);
@@ -28,6 +29,7 @@ function App(props) {
     }
   }, []);
 
+  //Private Route can be accessed only if the user is signed in
   const PrivateRoute = (privateRouteProps) => {
     const { isSignedIn, path, component: Component } = privateRouteProps;
     return (

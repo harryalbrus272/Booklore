@@ -8,9 +8,10 @@ import Order from './Order';
 
 const BookView = (props) => {
   let bookID = props.match.params.id;
-  console.log('props in the Bookview', props);
+  //Destructuring the props
   const { auth, books, dispatch } = props;
   const [bookDetails, setBookDetails] = useState({});
+  //Hiding the search bar in the navigation tab
   useEffect(() => {
     detailsBook(bookID);
     dispatch(hideBookSearch());
@@ -18,6 +19,8 @@ const BookView = (props) => {
       dispatch(showBookSearch());
     };
   }, []);
+
+  //fetching book details using the params
   const detailsBook = async (bookID) => {
     const url = APIUrls.detailsBook(bookID);
     try {
