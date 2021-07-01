@@ -5,7 +5,6 @@ import { logoutUser } from '../actions/auth';
 import { fetchBooks } from '../actions/books';
 
 const Navbar = (props) => {
-  console.log(props);
   const { auth, books } = props;
   const handleSearch = (event) => {
     const searchText = event.target.value;

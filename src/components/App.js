@@ -15,10 +15,8 @@ function App(props) {
   //Checking if the user is authenticated on opening the application
   useEffect(() => {
     const token = getAuthTokenFromLocalStorage();
-    console.log(token);
     if (token) {
       const user = jwtDecode(token);
-      console.log('user', user);
       props.dispatch(
         authenticateUser({
           email: user.email,

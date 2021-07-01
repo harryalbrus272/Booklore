@@ -82,8 +82,7 @@ export function authenticateUser(user) {
 }
 
 //Action for sending request to the sever to confirm sign in 
-export function signin({ email, password }) {
-  console.log(email, password);
+export function signin({ email, password }) {;
   const config = {
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',

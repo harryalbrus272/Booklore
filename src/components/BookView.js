@@ -29,7 +29,6 @@ const BookView = (props) => {
         if (data.success) {
           setBookDetails(data.book);
         }
-        console.log({ bookDetails });
       });
     } catch (error) {}
   };

@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 import { clearOrderRequestState, confirmOrder } from '../actions/orders';
 
 const Order = (props) => {
-  console.log('props in Order', props);
   const { dispatch, bookID, orders } = props;
   const [postData, setPostData] = useState({
     phoneNumber: '',

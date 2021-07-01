@@ -13,7 +13,6 @@ const initialOrderState = {
   requestMade: false,
 };
 const orders = (state = initialOrderState, action) => {
-  console.log(action);
   switch (action.type) {
     case ORDER_START:
       return {
