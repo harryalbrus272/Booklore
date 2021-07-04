@@ -1,5 +1,5 @@
 //This contains all the URLs that are used for the api calls
-const API_ROOT = 'http://localhost:3000/api';
+const API_ROOT = 'https://booklogstore.herokuapp.com/';
 const APIUrls = {
   signin: () => `${API_ROOT}/users/signin`,
   signup: () => `${API_ROOT}/users/signup`,
