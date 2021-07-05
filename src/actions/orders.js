@@ -57,8 +57,8 @@ export function confirmOrder(bookID, phoneNumber, address, pinCode, state) {
 
   return async (dispatch) => {
     try {
+      dispatch(startOrderRequest());
       await axios.post(url, getFormBody(bodyParameters), config).then((res) => {
-        dispatch(startOrderRequest());
         const { message, results, success } = res.data;
         if (success) {
           dispatch(successOrderRequest(results.newOrder));
