@@ -85,19 +85,15 @@ a {
   display: flex;
   align-items: center;
   padding: 9px 14px;
+  color: black;
 }
 .search-results-row:hover {
   background-color: #02040e;
+  color: white;
   cursor: pointer;
 }
 .search-results-row img {
   height: 27px;
-}
-.search-results-row span {
-  color: black;
-}
-.search-results-row span:hover {
-  color: white;
 }
 .horizontal-list {
   list-style: none;
@@ -156,7 +152,7 @@ a {
 }
 
 /*Home Page to display all books*/
-.book-info-container{
+.book-info-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -166,7 +162,7 @@ a {
   margin-top: 10px;
   position: relative;
 }
-.image-container{
+.image-container {
   margin: 3px 10px;
   padding: 5px;
 }
@@ -174,6 +170,6 @@ a {
   width: 30%;
   padding-left: 7%;
 }
-.description-container{
+.description-container {
   width: 50%;
 }
