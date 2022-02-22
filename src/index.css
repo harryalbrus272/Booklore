@@ -59,6 +59,9 @@ a {
   padding-left: 10px;
   border-radius: 0.7rem;
 }
+.search-results-row span {
+  padding-left: 9px;
+}
 .search-results {
   background: #fff;
   flex-grow: 1;

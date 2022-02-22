@@ -32,10 +32,10 @@ const Navbar = (props) => {
                   <Link to={`/book/${book._id}`}>
                     <li key={book._id} className="search-results-row">
                       <img
-                        src="https://image.flaticon.com/icons/svg/2154/2154651.svg"
+                        src="https://cdn-icons-png.flaticon.com/512/3557/3557574.png"
                         alt="user-dp"
                       />
-                      <span>{book.title}</span>
+                      <span className="book-title">{book.title}</span>
                     </li>
                   </Link>
                 ))}
